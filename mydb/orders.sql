@@ -30,3 +30,6 @@ INSERT INTO orders(orderid, custid, bookid, saleprice, orderdate)
 VALUES (9, 2, 10, 7000, '2018-07-09');
 INSERT INTO orders(orderid, custid, bookid, saleprice, orderdate)
 VALUES (10, 3, 8, 13000, '2018-07-10');
+
+
+
