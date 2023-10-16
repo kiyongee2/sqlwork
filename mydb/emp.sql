@@ -52,5 +52,8 @@ SELECT ename 사원이름,
        ROUND(salary/30, -1) 결과3
 FROM emp;
 
+SELECT * FROM EMP;
 
+-- 급여가 가장 많은 사원을 검색하시오
+-- MAX(SALARY)
 
