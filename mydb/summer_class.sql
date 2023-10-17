@@ -38,3 +38,33 @@ WHERE subject = 'Python';
 -- 삽입 이상
 -- C++ 강좌 개설 :  신청한 학생이 없음
 INSERT INTO summer_class VALUES (NULL, 'C++', 35000);
+
+-- 학생 3명, 튜플은 4개인 불일치 발생
+SELECT COUNT(*) 수강인원
+FROM summer_class;
+
+SELECT COUNT(sid) 수강인원
+FROM summer_class;
+
+-- Java 수강료가 45,000원에서 40,000원으로 변경됨
+UPDATE summer_class 
+SET price = 40000
+WHERE subject = 'Java';
+
+-- 수정 이상
+-- 만약 UPDATE문을 다음처럼 이상 현상 발생
+-- 1건만 수정
+UPDATE summer_class 
+SET price = 40000
+WHERE subject = 'Java' 
+  AND sid = 101;
+  
+-- Java 수강료는?
+SELECT price
+FROM summer_class
+WHERE subject = 'Java';
+
+COMMIT;
+
+ROLLBACK;
+

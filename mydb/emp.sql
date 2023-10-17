@@ -65,4 +65,6 @@ SELECT ename, salary
 FROM emp
 WHERE salary = (SELECT MAX(salary) FROM emp)
    OR salary = (SELECT MIN(salary) FROM emp);
+   
+
 
