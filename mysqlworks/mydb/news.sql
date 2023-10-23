@@ -19,11 +19,17 @@ VALUES ('스포츠 뉴스', '한국과 베트남 축구 성적 - 6:0', 'soccer.j
 INSERT INTO news(title, content, img) 
 VALUES ('과학 뉴스', '협동로봇, 청소 서비스로봇 ', 'robot.png');
 
-SELECT * FROM news ORDER BY create_date DESC;
+SELECT * FROM news aid LIMIT 0, 10;
 
--- 등록시간 순으로 정렬하시오(최근 등록일이 위로 올라감)
-select * from news
-order by create_date desc;
+-- 페이지 처리
+SELECT rnum, A.aid, A.title, A.content
+FROM (SELECT @ROWNUM := @ROWNUM + 1 AS rnum, aid, title, content
+	FROM news WHERE (@rownum:=0)=0 ORDER BY aid DESC) A
+WHERE rnum >= 11 and rnum <= 20;
+
+-- 재귀 복사
+insert into news(title, content, img)
+(select title, content, img from news);
 
 -- 뉴스 내용 중에 '이스라엘'이 포함된 뉴스를 검색하시오.
 select * from news
