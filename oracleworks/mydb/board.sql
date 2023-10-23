@@ -13,8 +13,7 @@ VALUES (seq.NEXTVAL, '가입 인사', '안녕하세요~ 만나서 반갑습니다.', 'today10');
 INSERT INTO board(bno, btitle, bcontent, bwriter)
 VALUES (seq.NEXTVAL, '공지 사항', '천장 에어컨 청소합니다.', 'admin0000');
 
-SELECT * FROM board 
-ORDER BY bno DESC;
+SELECT * FROM board ORDER BY bno DESC;
 
 DROP SEQUENCE seq;
 
