@@ -21,14 +21,15 @@ SELECT * FROM board ORDER BY bno DESC;
 
 -- ROWNUM을 이용한 페이지처리
 SELECT ROWNUM, bno, btitle, bcontent, bwriter, bdate 
-FROM board;
---WHERE ROWNUM >=11 AND ROWNUM <= 20;
+FROM board
+WHERE ROWNUM >=1 AND ROWNUM <= 10
+ORDER BY bno DESC;
 
 -- ROWNUM은 1을 포함해야하므로 rn을 사용하여 페이지 처리함
-SELECT * 
+SELECT ROWNUM, bno, btitle, bcontent, bwriter, bdate
   FROM (SELECT ROWNUM rn, bno, btitle, bcontent, bwriter, bdate
-        FROM board)
-WHERE rn >=21 AND rn <= 30; 
+        FROM board  order by bno desc)
+WHERE rn >=21 AND rn <= 30;
 
 -- ROWID : 데이터를 구분할 수 있는 유일한 값
 --         데이터 파일의 저장 블록을 확인할 수 있음
