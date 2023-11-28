@@ -19,4 +19,18 @@ COMMIT;
 
 SELECT * FROM addrbook;
 
+-- 이메일 khit@kh.kr 찾기
+SELECT email FROM addrbook
+WHERE email = 'khit@kh.kr';
+-- 주소 삭제
+DELETE FROM addrbook WHERE bnum = 6;
+-- 주소 수정
+UPDATE addrbook 
+SET username = '금강', tel='010-6666-7777', gender='남'
+WHERE bnum = 3;
+
+COMMIT;
+DROP TABLE addrbook;
+DROP SEQUENCE seq_bnum;
+
 
